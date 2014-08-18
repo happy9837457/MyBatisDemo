@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserInfoVO">
+
+	<resultMap id="userInfoVOResMap" type="UserInfoVO">
+		<result property="userId" column="USER_ID" />
+		<result property="userName" column="USER_NAME" />
+		<result property="userPwd" column="USER_PWD" />
+		<result property="mobile" column="MOBILE" />
+		<result property="idCard" column="IDCARD" />
+		<result property="createTime" column="CREATE_TIME" />
+	</resultMap>
+
+	<insert id="insertUserInfoVO" parameterType="UserInfoVO">
+		INSERT INTO USER_INFO(USER_ID, USER_NAME, USER_PWD, MOBILE, IDCARD, CREATE_TIME)
+			VALUES(SEQ_STATID.nextval, #{userName}, #{userPwd}, #{mobile,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, SYSDATE)
+	</insert>
+
+	<select id="queryUserInfoVOByUserId" parameterType="string"
+		resultMap="userInfoVOResMap">
+		SELECT * FROM USER_INFO WHERE USER_ID = #{userId}
+	</select>
+
+	<select id="queryUserInfoVOsByPage" parameterType="map" resultMap="userInfoVOResMap">
+		SELECT * FROM (
+		  SELECT U.*, ROWNUM RN FROM USER_INFO U WHERE ROWNUM &lt;= #{from} + ${size}
+		) WHERE RN &gt; #{from}
+	</select>
+
+	<update id="updateStatusByUserId" parameterType="map">
+		UPDATE USER_INFO U SET U.STATUS = #{status} WHERE U.USER_ID = #{userId}
+	</update>
+</mapper>
