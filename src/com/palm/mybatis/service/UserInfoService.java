@@ -34,7 +34,15 @@ public interface UserInfoService {
 	 * @return
 	 */
 	public List<UserInfoVO> queryUserInfoVOsByPage(int from, int size);
-	
+
+	/**
+	 * 通过mobile查询
+	 * 
+	 * @param mobile
+	 * @return
+	 */
+	public List<UserInfoVO> queryUsesrInfoVOsByMobile(String mobile);
+
 	/**
 	 * 通过userId更新status
 	 * 

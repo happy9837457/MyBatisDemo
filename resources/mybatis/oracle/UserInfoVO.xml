@@ -29,6 +29,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  SELECT U.*, ROWNUM RN FROM USER_INFO U WHERE ROWNUM &lt;= #{from} + ${size}
 		) WHERE RN &gt; #{from}
 	</select>
+	
+	<select id="queryUsesrInfoVOsByMobile" parameterType="string" resultMap="userInfoVOResMap">
+		SELECT * FROM USER_INFO U
+		<where>
+			<if test="mobile != null and mobile != ''">
+				U.MOBILE = #{mobile}
+			</if>
+		</where>
+	</select>
 
 	<update id="updateStatusByUserId" parameterType="map">
 		UPDATE USER_INFO U SET U.STATUS = #{status} WHERE U.USER_ID = #{userId}

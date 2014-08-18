@@ -37,6 +37,11 @@ public class UserInfoDaoImpl implements UserInfoDao {
 		params.put("size", size);
 		return sqlSessionTemplate.selectList("UserInfoVO.queryUserInfoVOsByPage", params);
 	}
+	
+	@Override
+	public List<UserInfoVO> queryUsesrInfoVOsByMobile(String mobile) {
+		return sqlSessionTemplate.selectList("UserInfoVO.queryUsesrInfoVOsByMobile", mobile);
+	}
 
 	@Override
 	public int updateStatusByUserId(String userId, int status) {
@@ -45,5 +50,6 @@ public class UserInfoDaoImpl implements UserInfoDao {
 		params.put("status", status);
 		return sqlSessionTemplate.update("UserInfoVO.updateStatusByUserId", params);
 	}
+
 
 }

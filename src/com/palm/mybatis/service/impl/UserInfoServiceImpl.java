@@ -34,8 +34,13 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	@Override
+	public List<UserInfoVO> queryUsesrInfoVOsByMobile(String mobile) {
+		return userInfoDao.queryUsesrInfoVOsByMobile(mobile);
+	}
+
+	@Override
 	public int updateStatusByUserId(String userId, int status) {
 		return userInfoDao.updateStatusByUserId(userId, status);
 	}
-	
+
 }

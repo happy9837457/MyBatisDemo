@@ -40,6 +40,13 @@ public class UserInfoServiceTest {
 		List<UserInfoVO> userVOs = userInfoService.queryUserInfoVOsByPage(from, size);
 		System.out.println(userVOs.size());
 	}
+	
+	@Test
+	public void testQueryUsesrInfoVOsByMobile(){
+		String mobile = "";
+		List<UserInfoVO> userInfoVOs = userInfoService.queryUsesrInfoVOsByMobile(mobile);
+		System.out.println(userInfoVOs.size());
+	}
 
 	@Test
 	public void testUpdateStatusByUserId() {
