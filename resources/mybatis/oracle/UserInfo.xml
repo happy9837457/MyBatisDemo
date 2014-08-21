@@ -3,9 +3,9 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="UserInfoVO">
+<mapper namespace="UserInfo">
 
-	<resultMap id="userInfoVOResMap" type="UserInfoVO">
+	<resultMap id="userInfoResMap" type="UserInfo">
 		<result property="userId" column="USER_ID" />
 		<result property="userName" column="USER_NAME" />
 		<result property="userPwd" column="USER_PWD" />
@@ -14,23 +14,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="createTime" column="CREATE_TIME" />
 	</resultMap>
 
-	<insert id="insertUserInfoVO" parameterType="UserInfoVO">
+	<insert id="insertUserInfo" parameterType="UserInfo">
 		INSERT INTO USER_INFO(USER_ID, USER_NAME, USER_PWD, MOBILE, IDCARD, CREATE_TIME)
 			VALUES(SEQ_STATID.nextval, #{userName}, #{userPwd}, #{mobile,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, SYSDATE)
 	</insert>
 
-	<select id="queryUserInfoVOByUserId" parameterType="string"
-		resultMap="userInfoVOResMap">
+	<select id="queryUserInfoByUserId" parameterType="string"
+		resultMap="userInfoResMap">
 		SELECT * FROM USER_INFO WHERE USER_ID = #{userId}
 	</select>
 
-	<select id="queryUserInfoVOsByPage" parameterType="map" resultMap="userInfoVOResMap">
+	<select id="queryUserInfosByPage" parameterType="map" resultMap="userInfoResMap">
 		SELECT * FROM (
 		  SELECT U.*, ROWNUM RN FROM USER_INFO U WHERE ROWNUM &lt;= #{from} + ${size}
 		) WHERE RN &gt; #{from}
 	</select>
 	
-	<select id="queryUsesrInfoVOsByMobile" parameterType="string" resultMap="userInfoVOResMap">
+	<select id="queryUsesrInfosByMobile" parameterType="string" resultMap="userInfoResMap">
 		SELECT * FROM USER_INFO U
 		<where>
 			<if test="mobile != null and mobile != ''">

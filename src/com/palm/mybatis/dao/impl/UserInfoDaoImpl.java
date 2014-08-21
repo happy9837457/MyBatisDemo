@@ -7,8 +7,8 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.palm.mybatis.bean.UserInfo;
 import com.palm.mybatis.dao.UserInfoDao;
-import com.palm.mybatis.vo.UserInfoVO;
 
 /**
  * UserDao接口实现
@@ -21,26 +21,26 @@ public class UserInfoDaoImpl implements UserInfoDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 
 	@Override
-	public void insertUserInfoVO(UserInfoVO userVO) {
-		sqlSessionTemplate.insert("UserInfoVO.insertUserInfoVO", userVO);
+	public void insertUserInfo(UserInfo userInfo) {
+		sqlSessionTemplate.insert("UserInfo.insertUserInfo", userInfo);
 	}
 
 	@Override
-	public UserInfoVO queryUserInfoVOByUserId(String userId) {
-		return sqlSessionTemplate.selectOne("UserInfoVO.queryUserInfoVOByUserId", userId);
+	public UserInfo queryUserInfoByUserId(String userId) {
+		return sqlSessionTemplate.selectOne("UserInfo.queryUserInfoByUserId", userId);
 	}
 
 	@Override
-	public List<UserInfoVO> queryUserInfoVOsByPage(int from, int size) {
+	public List<UserInfo> queryUserInfosByPage(int from, int size) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("from", from);
 		params.put("size", size);
-		return sqlSessionTemplate.selectList("UserInfoVO.queryUserInfoVOsByPage", params);
+		return sqlSessionTemplate.selectList("UserInfo.queryUserInfosByPage", params);
 	}
 	
 	@Override
-	public List<UserInfoVO> queryUsesrInfoVOsByMobile(String mobile) {
-		return sqlSessionTemplate.selectList("UserInfoVO.queryUsesrInfoVOsByMobile", mobile);
+	public List<UserInfo> queryUsesrInfosByMobile(String mobile) {
+		return sqlSessionTemplate.selectList("UserInfo.queryUsesrInfosByMobile", mobile);
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class UserInfoDaoImpl implements UserInfoDao {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("userId", userId);
 		params.put("status", status);
-		return sqlSessionTemplate.update("UserInfoVO.updateStatusByUserId", params);
+		return sqlSessionTemplate.update("UserInfo.updateStatusByUserId", params);
 	}
 
 

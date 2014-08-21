@@ -1,14 +1,14 @@
-package com.palm.mybatis.vo;
+package com.palm.mybatis.bean;
 
 import java.util.Date;
 
 /**
- * UserInfoVO实体类
+ * UserInfo实体类
  * 
  * @author weixiang.qin
  * 
  */
-public class UserInfoVO {
+public class UserInfo {
 	private String userId;
 	private String userName;
 	private String userPwd;

@@ -2,7 +2,7 @@ package com.palm.mybatis.dao;
 
 import java.util.List;
 
-import com.palm.mybatis.vo.UserInfoVO;
+import com.palm.mybatis.bean.UserInfo;
 
 /**
  * UserDao接口
@@ -14,9 +14,9 @@ public interface UserInfoDao {
 	/**
 	 * 插入
 	 * 
-	 * @param userInfoVO
+	 * @param userInfo
 	 */
-	public void insertUserInfoVO(UserInfoVO userInfoVO);
+	public void insertUserInfo(UserInfo userInfo);
 
 	/**
 	 * 通过userId查询
@@ -24,7 +24,7 @@ public interface UserInfoDao {
 	 * @param userId
 	 * @return
 	 */
-	public UserInfoVO queryUserInfoVOByUserId(String userId);
+	public UserInfo queryUserInfoByUserId(String userId);
 
 	/**
 	 * 分页查询
@@ -33,7 +33,7 @@ public interface UserInfoDao {
 	 * @param size
 	 * @return
 	 */
-	public List<UserInfoVO> queryUserInfoVOsByPage(int from, int size);
+	public List<UserInfo> queryUserInfosByPage(int from, int size);
 	
 	/**
 	 * 通过mobile查询
@@ -41,7 +41,7 @@ public interface UserInfoDao {
 	 * @param mobile
 	 * @return
 	 */
-	public List<UserInfoVO> queryUsesrInfoVOsByMobile(String mobile);
+	public List<UserInfo> queryUsesrInfosByMobile(String mobile);
 
 	/**
 	 * 通过userId更新status

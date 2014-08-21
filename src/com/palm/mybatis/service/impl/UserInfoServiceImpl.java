@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.palm.mybatis.bean.UserInfo;
 import com.palm.mybatis.dao.UserInfoDao;
 import com.palm.mybatis.service.UserInfoService;
-import com.palm.mybatis.vo.UserInfoVO;
 
 /**
  * UserService接口实现
@@ -19,23 +19,23 @@ public class UserInfoServiceImpl implements UserInfoService {
 	private UserInfoDao userInfoDao;
 
 	@Override
-	public void insertUserInfoVO(UserInfoVO userInfoVO) {
-		userInfoDao.insertUserInfoVO(userInfoVO);
+	public void insertUserInfo(UserInfo userInfo) {
+		userInfoDao.insertUserInfo(userInfo);
 	}
 
 	@Override
-	public UserInfoVO queryUserInfoVOByUserId(String userId) {
-		return userInfoDao.queryUserInfoVOByUserId(userId);
+	public UserInfo queryUserInfoByUserId(String userId) {
+		return userInfoDao.queryUserInfoByUserId(userId);
 	}
 
 	@Override
-	public List<UserInfoVO> queryUserInfoVOsByPage(int from, int size) {
-		return userInfoDao.queryUserInfoVOsByPage(from, size);
+	public List<UserInfo> queryUserInfosByPage(int from, int size) {
+		return userInfoDao.queryUserInfosByPage(from, size);
 	}
 
 	@Override
-	public List<UserInfoVO> queryUsesrInfoVOsByMobile(String mobile) {
-		return userInfoDao.queryUsesrInfoVOsByMobile(mobile);
+	public List<UserInfo> queryUsesrInfosByMobile(String mobile) {
+		return userInfoDao.queryUsesrInfosByMobile(mobile);
 	}
 
 	@Override

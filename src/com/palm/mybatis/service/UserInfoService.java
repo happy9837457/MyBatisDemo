@@ -2,7 +2,7 @@ package com.palm.mybatis.service;
 
 import java.util.List;
 
-import com.palm.mybatis.vo.UserInfoVO;
+import com.palm.mybatis.bean.UserInfo;
 
 /**
  * UserInfoService接口
@@ -16,7 +16,7 @@ public interface UserInfoService {
 	 * 
 	 * @param userVO
 	 */
-	public void insertUserInfoVO(UserInfoVO userInfoVO);
+	public void insertUserInfo(UserInfo userInfoVO);
 
 	/**
 	 * 通过userId查询
@@ -24,7 +24,7 @@ public interface UserInfoService {
 	 * @param userId
 	 * @return
 	 */
-	public UserInfoVO queryUserInfoVOByUserId(String userId);
+	public UserInfo queryUserInfoByUserId(String userId);
 
 	/**
 	 * 分页查询
@@ -33,7 +33,7 @@ public interface UserInfoService {
 	 * @param size
 	 * @return
 	 */
-	public List<UserInfoVO> queryUserInfoVOsByPage(int from, int size);
+	public List<UserInfo> queryUserInfosByPage(int from, int size);
 
 	/**
 	 * 通过mobile查询
@@ -41,7 +41,7 @@ public interface UserInfoService {
 	 * @param mobile
 	 * @return
 	 */
-	public List<UserInfoVO> queryUsesrInfoVOsByMobile(String mobile);
+	public List<UserInfo> queryUsesrInfosByMobile(String mobile);
 
 	/**
 	 * 通过userId更新status

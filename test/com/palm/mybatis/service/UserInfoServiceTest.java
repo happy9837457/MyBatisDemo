@@ -6,8 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.palm.mybatis.bean.UserInfo;
 import com.palm.mybatis.util.SpringHelper;
-import com.palm.mybatis.vo.UserInfoVO;
 
 public class UserInfoServiceTest {
 	private UserInfoService userInfoService;
@@ -18,33 +18,33 @@ public class UserInfoServiceTest {
 	}
 
 	@Test
-	public void testInsertUserVO() {
-		UserInfoVO userVO = new UserInfoVO();
+	public void testInsertUser() {
+		UserInfo userVO = new UserInfo();
 		userVO.setUserName("username");
 		userVO.setUserPwd("userpwd");
 		userVO.setStatus(0);
-		userInfoService.insertUserInfoVO(userVO);
+		userInfoService.insertUserInfo(userVO);
 	}
 
 	@Test
-	public void testQueryUserVOByUserId() {
+	public void testQueryUserByUserId() {
 		String userId = "10000";
-		UserInfoVO userVO = userInfoService.queryUserInfoVOByUserId(userId);
+		UserInfo userVO = userInfoService.queryUserInfoByUserId(userId);
 		System.out.println(userVO.getUserName());
 	}
 
 	@Test
-	public void testQueryUserVOsByPage() {
+	public void testQueryUsersByPage() {
 		int from = 0;
 		int size = 20;
-		List<UserInfoVO> userVOs = userInfoService.queryUserInfoVOsByPage(from, size);
+		List<UserInfo> userVOs = userInfoService.queryUserInfosByPage(from, size);
 		System.out.println(userVOs.size());
 	}
 	
 	@Test
-	public void testQueryUsesrInfoVOsByMobile(){
+	public void testQueryUsesrInfosByMobile(){
 		String mobile = "";
-		List<UserInfoVO> userInfoVOs = userInfoService.queryUsesrInfoVOsByMobile(mobile);
+		List<UserInfo> userInfoVOs = userInfoService.queryUsesrInfosByMobile(mobile);
 		System.out.println(userInfoVOs.size());
 	}
 

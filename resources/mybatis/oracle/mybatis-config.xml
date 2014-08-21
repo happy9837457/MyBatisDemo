@@ -14,9 +14,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<setting name="defaultStatementTimeout" value="25000" />
 	</settings>
 	<typeAliases>
-		<typeAlias alias="UserInfoVO" type="com.palm.mybatis.vo.UserInfoVO" />
+		<typeAlias alias="UserInfo" type="com.palm.mybatis.bean.UserInfo" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="mybatis/oracle/UserInfoVO.xml" />
+		<mapper resource="mybatis/oracle/UserInfo.xml" />
 	</mappers>
 </configuration>
