@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.palm.mybatis.bean.UserInfo;
 import com.palm.mybatis.dao.UserInfoDao;
@@ -16,6 +17,7 @@ import com.palm.mybatis.dao.UserInfoDao;
  * @author weixiang.qin
  * 
  */
+@Repository
 public class UserInfoDaoImpl implements UserInfoDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;

@@ -3,6 +3,8 @@ package com.palm.mybatis.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.palm.mybatis.bean.UserInfo;
 import com.palm.mybatis.dao.UserInfoDao;
@@ -14,10 +16,12 @@ import com.palm.mybatis.service.UserInfoService;
  * @author weixiang.qin
  * 
  */
+@Service("userInfoService")
 public class UserInfoServiceImpl implements UserInfoService {
 	@Autowired
 	private UserInfoDao userInfoDao;
 
+	@Transactional
 	@Override
 	public void insertUserInfo(UserInfo userInfo) {
 		userInfoDao.insertUserInfo(userInfo);
@@ -38,6 +42,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return userInfoDao.queryUsesrInfosByMobile(mobile);
 	}
 
+	@Transactional
 	@Override
 	public int updateStatusByUserId(String userId, int status) {
 		return userInfoDao.updateStatusByUserId(userId, status);
