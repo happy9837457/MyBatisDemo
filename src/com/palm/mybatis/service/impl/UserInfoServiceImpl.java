@@ -2,7 +2,8 @@ package com.palm.mybatis.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,10 +19,9 @@ import com.palm.mybatis.service.UserInfoService;
  */
 @Service("userInfoService")
 public class UserInfoServiceImpl implements UserInfoService {
-	@Autowired
+	@Resource
 	private UserInfoDao userInfoDao;
 
-	@Transactional
 	@Override
 	public void insertUserInfo(UserInfo userInfo) {
 		userInfoDao.insertUserInfo(userInfo);
