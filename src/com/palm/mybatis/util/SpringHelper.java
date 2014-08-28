@@ -25,7 +25,7 @@ public class SpringHelper {
 	public synchronized static void init() {
 		if (cx == null) {
 			cx = new ClassPathXmlApplicationContext(
-					"classpath:applicationContext2.xml");
+					"classpath:spring/applicationContext2.xml");
 			logger.info("Spring init success.");
 		}
 	}
